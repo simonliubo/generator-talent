@@ -1,0 +1,13 @@
+{
+	"name": "tita-web-v4"
+	,"version": "0.0.1"
+	,"dependencies": {
+		"jquery": "http://bower.beisen.co/repo/jquery/1.10.1.js"
+		,"underscore": "http://bower.beisen.co/repo/lodash/1.3.1.js"
+		,"json2": "http://bower.beisen.co/repo/json2/index.js"
+		,"backbone": "http://bower.beisen.co/repo/backbone/1.0.0.js"
+		,"marionette": "http://bower.beisen.co/repo/marionette/1.0.3.js"
+		,"jquery.cookie": "http://bower.beisen.co/repo/jquery.cookie/1.3.1.js"
+		,"jquery.ui": "http://bower.beisen.co/repo/jquery.ui/1.10.0.js"
+	}
+}

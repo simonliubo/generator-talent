@@ -1,0 +1,7 @@
+{
+  "directory": "app/scripts/vendor/components"
+  ,"endpoint": "http://bower.beisen.co"
+  ,"searchpath": [
+    "https://bower.herokuapp.com"
+  ]
+}

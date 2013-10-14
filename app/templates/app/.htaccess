@@ -1,0 +1,5 @@
+#rewrite rules for nginx or apache
+
+
+RewriteRule  release/(hotfix|app)(.*)\-\d+(\.min)?(\.js|\.css)$  $2$4  [L]
+RewriteRule  release/app(.*)$  $1  [L]

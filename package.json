@@ -1,0 +1,38 @@
+{
+  "name": "generator-talent",
+  "version": "0.0.1",
+  "description": "A generator for app based on talentjs framework",
+  "keywords": [
+    "yeoman-generator",
+    "generator-talent"
+  ],
+  "homepage": "https://github.com/kcz/generator-talent",
+  "bugs": "https://github.com/kcz/generator-talent/issues",
+  "author": {
+    "name": "kcz",
+    "email": "hi@kcz.me",
+    "url": "https://github.com/kcz"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kcz/generator-talent.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.10.2"
+  },
+  "devDependencies": {
+    "mocha": "~1.9.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}
