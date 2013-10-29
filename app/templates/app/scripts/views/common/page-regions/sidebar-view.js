@@ -1,17 +1,17 @@
 define(['talent', 'templates/common'],
-	function(talent, jst) {
+	function(Talent, jst) {
 	/**
 	* Sidebar view class
 	* @author nobody
-	* @extends {talent.View}
+	* @extends {Talent.Layout}
 	* @class SidebarView
 	*/
-	return talent.Layout.extend(
+	return Talent.Layout.extend(
 		/** @lends SidebarView.prototype */
 	{
 		template: jst['common/page-regions/sidebar']
 		,tagName : 'ul'
-		,className : 'nav nav-list'
+		,className : 'nav nav-list span3'
 	});
 
 });

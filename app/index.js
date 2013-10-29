@@ -29,7 +29,7 @@ TalentGenerator.prototype.askFor = function askFor() {
 	'\n    |       |' +
 	'\n    |' + '--(o)--'.red + '|   .--------------------------.' +
 	'\n   `---------麓  |    ' + 'Welcome to Talent,'.yellow + '    |' +
-	'\n    ' + '( '.yellow + '_' + '麓U`'.yellow + '_' + ' )'.yellow + '   |   ' + 'ladies and gentlemen!'.yellow.bold + '  |' +
+	'\n    ' + '( '.yellow + '_' + '麓U`'.yellow + '_' + ' )'.yellow + '   |   ' + 'ladies and gentlemen!'.yellow + '  |' +
 	'\n    /___A___\\   \'__________________________\'' +
 	'\n     |  ~  |'.yellow +
 	'\n   __' + '\'.___.\''.yellow + '__' +

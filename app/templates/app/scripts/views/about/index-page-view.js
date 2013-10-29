@@ -1,13 +1,12 @@
 define(['talent'
-	,'templates/<%=topChannel%>'
-],function(talent
+	,'templates/about'
+],function(Talent
 	,jst
 ) {
-	var MainView = talent.Layout.extend({
-		template: jst['<%=name%>/index-page']
+	var MainView = Talent.Layout.extend({
+		template: jst['about/index-page']
 		,className: 'well span8'
 		,initialize: function() {
-			
 		}
 		,regions: {
 			// main: '.page-main-region'
@@ -22,8 +21,8 @@ define(['talent'
 		}
 	});
 
-	return talent.BasePageView.extend({
+	return Talent.BasePageView.extend({
 		mainViewClass : MainView
-		,pageTitle: '<%=name%>'
+		,pageTitle: 'About'
 	});
 });

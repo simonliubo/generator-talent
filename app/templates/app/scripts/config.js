@@ -5,12 +5,14 @@ require.config({
 		,"json2": "vendor/components/json2/index"
 		,"marionette": "vendor/components/marionette/index"
 		,"underscore": "vendor/components/underscore/index"
-		,"talent" : 'vendor/talent/index'
-
-		,"jquery.cookie": "vendor/components/jquery.cookie/index"
+		,"requirejs": "vendor/components/requirejs/index"
+		,"talent" : 'vendor/components/talent/index'
 	},
 	shim: {
-		'underscore': {
+		'jquery': {
+			exports: '$'
+		}
+		,'underscore': {
 			exports: '_'
 		}
 		,'backbone': {
@@ -21,5 +23,9 @@ require.config({
 			deps: ['backbone'],
 			exports: 'Marionette'
 		}
+		,'talent': {
+			deps: ['marionette'],
+			exports: 'Talent'
+		}
 	}
-});
+}); 

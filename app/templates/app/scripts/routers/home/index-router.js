@@ -1,5 +1,5 @@
-define(['talent'],function(talent){
-	return talent.Router.extend({
+define(['talent'],function(Talent){
+	return Talent.Router.extend({
 		routes: {
 			"home/feeds": "handler"
 		},

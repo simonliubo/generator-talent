@@ -1,9 +1,9 @@
 define(['talent'
 	,'routers/home/index-router'
-],function(talent
+],function(Talent
 	,HomeRouter
 ){
-	talent.app.addInitializer(function(){
+	Talent.app.addInitializer(function(){
 		new HomeRouter;
 	});
 })

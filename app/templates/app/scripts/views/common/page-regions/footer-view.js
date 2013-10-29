@@ -1,11 +1,11 @@
-define(['talent', 'templates/common'], function(talent, jst) {
+define(['talent', 'templates/common'], function(Talent, jst) {
 	/**
 	* Footer view class
 	* @author nobody
 	* @extends {Backbone.View}
 	* @class FooterView
 	*/
-	return talent.View.extend(
+	return Talent.View.extend(
 		/** @lends FooterView.prototype */
 	{
 		template: jst['common/page-regions/footer']

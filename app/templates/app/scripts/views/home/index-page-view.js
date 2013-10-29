@@ -1,6 +1,6 @@
 define(['talent'
 	,'templates/home'
-],function(talent
+],function(Talent
 	,jst
 ) {
 	/**
@@ -8,16 +8,16 @@ define(['talent'
 	 * @class HomeView~MainView
 	 * @extends {Backbone.View}
 	 */	
-	var MainView = talent.Layout.extend(
+	var MainView = Talent.Layout.extend(
 		/** @lends HomeView~MainView.prototype */
 	{
 		template: jst['home/index-page']
 		,className: 'home-page-container'
 		,initialize: function() {
-			talent.Context.setPageTitle('Page Title: Home');
+			
 		}
 		,regions: {
-			pubblog: '.pubblog_home'
+			content: '.page-content'
 		}
 		,ui:{
 			start: '.btn-start'
@@ -39,7 +39,8 @@ define(['talent'
 	});
 
 
-	return talent.BasePageView.extend({
+	return Talent.BasePageView.extend({
 		mainViewClass : MainView
+		,pageTitle: 'Home'
 	});
 });

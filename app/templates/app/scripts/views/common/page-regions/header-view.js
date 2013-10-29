@@ -1,11 +1,11 @@
-define(['talent','templates/common'], function(talent, jst) {
+define(['talent','templates/common'], function(Talent, jst) {
 	/**
 	* Header view class
 	* @author nobody
-	* @extends {talent.View}
+	* @extends {Talent.CompositeView}
 	* @class HeaderView
 	*/
-	return talent.CompositeView.extend(
+	return Talent.CompositeView.extend(
 		/** @lends HeaderView.prototype */
 	{
 		template: jst['common/page-regions/header']

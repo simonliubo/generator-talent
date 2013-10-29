@@ -1,3 +1,3 @@
-define(['talent', 'helpers/context'], function(talent, Context) {
+define(['talent', 'helpers/context'], function(Talent, Context) {
 	
 });

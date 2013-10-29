@@ -31,7 +31,7 @@
 		BSGlobal.webPath = 'bs-ux.com';
 	</script>
 
-	<script src="extras/scripts/vendor/require-2.1.2.min.js" data-main="scripts/main"></script>
+	<script src="scripts/vendor/components/requirejs/index.js" data-main="scripts/main"></script>
 	<script type="text/javascript">			
 		BSGlobal.staticPath = '.';
 		requirejs.config({
@@ -40,6 +40,7 @@
 				'*': {
 				//top channels start
 				"views/home/all-in-one":"views/home/index-page-view",
+				"views/about/all-in-one":"views/about/index-page-view"
 				//top channels end
 				}
 			}

@@ -1,9 +1,9 @@
 define(['talent', 'templates/common', 
 	'views/common/page-regions/header-view', 'views/common/page-regions/footer-view', 
 	'views/common/page-regions/sidebar-view'],
-	function(talent, jst, HeaderView, FooterView, SidebarView) {
+	function(Talent, jst, HeaderView, FooterView, SidebarView) {
 
-	var Layout = talent.BaseMasterLayout.extend({
+	var Layout = Talent.BaseMasterLayout.extend({
 		template: jst['common/layouts/master-layout']
 		,regionsClass: {
 			header: HeaderView,

@@ -5,9 +5,9 @@ define(['talent', 'helpers/context'],
 	 * @author kongchangzhu
 	 * @exports network
 	 */
-	function(talent, Context) {
+	function(Talent, Context) {
 
-	var $ = talent.$;
+	var $ = Talent.$;
 
 	/**
 	 * Add converter and transport to deal with request with datatype of mock, used in dev.
@@ -25,7 +25,7 @@ define(['talent', 'helpers/context'],
 				login();
 			}
 			,230:function(){
-				talent.app.vent.trigger('network:error',230);
+				Talent.app.vent.trigger('network:error',230);
 			}
 		}
 	});

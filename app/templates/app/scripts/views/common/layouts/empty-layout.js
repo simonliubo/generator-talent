@@ -1,7 +1,7 @@
 define(['talent', 'templates/common'],
-	function(talent, jst) {
+	function(Talent, jst) {
 
-	var Layout = talent.BaseEmptyLayout.extend({
+	var Layout = Talent.BaseEmptyLayout.extend({
 		template: jst['common/layouts/empty-layout']
 	});
 	/**

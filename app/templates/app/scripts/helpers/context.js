@@ -1,7 +1,7 @@
 /**
  * Context Object, pass global variable to all classes
  */
-define(['talent'], function(talent) {
+define(['talent'], function(Talent) {
 
 	// all ajax apis have same domain except jsonp call
 	var apiServer = BSGlobal.apiPath;
@@ -81,7 +81,7 @@ define(['talent'], function(talent) {
 		}
 	};
 
-	talent.Context = talent._.extend(talent.Context, localContext);
+	Talent.Context = Talent._.extend({}, localContext);
 
-	return talent.Context;
+	return Talent.Context;
 });
