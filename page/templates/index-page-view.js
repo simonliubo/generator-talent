@@ -5,7 +5,6 @@ define(['talent'
 ) {
 	var MainView = talent.Layout.extend({
 		template: jst['<%=name%>/index-page']
-		,className: 'well span8'
 		,initialize: function() {
 			
 		}
@@ -19,6 +18,12 @@ define(['talent'
 			var events = {};
 			// events['click ' + this.ui.item] = 'eventHandler';
 			return events;
+		}
+		,onRender: function() {
+		}
+		,onShow: function() {
+		}
+		,onClose:function(){
 		}
 	});
 

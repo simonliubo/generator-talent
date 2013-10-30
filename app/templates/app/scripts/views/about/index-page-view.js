@@ -5,7 +5,6 @@ define(['talent'
 ) {
 	var MainView = Talent.Layout.extend({
 		template: jst['about/index-page']
-		,className: 'well span8'
 		,initialize: function() {
 		}
 		,regions: {

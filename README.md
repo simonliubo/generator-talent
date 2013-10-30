@@ -1,13 +1,20 @@
-# Generator talent
-[![Build Status](https://secure.travis-ci.org/kcz/generator-talent.png?branch=master)](https://travis-ci.org/kcz/generator-talent)
+# Generator TalentJS
+A generator for TalentJS Framework
 
-A generator for Yeoman.
+## Dependencies
+- Make sure you have yo,bower installed:
+	`npm install -g yo bower`
 
 ## Getting started
-- Make sure you have [yo](https://github.com/yeoman/yo) installed:
-    `npm install -g yo`
-- Install the generator **locally**: `npm install generator-talent`
-- Run: `yo talent`
+- git clone the generators repo locally
+- cd into that repository and run `npm link`
+- Install the generator
+	`npm install generator-talent`
 
-## License
-[MIT License](http://en.wikipedia.org/wiki/MIT_License)
+## Creating project
+- create project folder and cd
+	`mkdir demo && cd $_`
+- run generator
+	`yo talent`
+- start project
+	`grunt server`

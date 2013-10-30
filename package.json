@@ -1,10 +1,12 @@
 {
   "name": "generator-talent",
   "version": "0.0.1",
-  "description": "A generator for app based on talentjs framework",
+  "description": "Yeoman generator for TalentJS",
   "keywords": [
     "yeoman-generator",
-    "generator-talent"
+    "scaffold",
+    "framework",
+    "front-end"
   ],
   "homepage": "https://github.com/kcz/generator-talent",
   "bugs": "https://github.com/kcz/generator-talent/issues",
@@ -22,7 +24,8 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.10.2"
+    "yeoman-generator": "~0.13.0",
+    "chalk": "~0.2.0"
   },
   "devDependencies": {
     "mocha": "~1.9.0"

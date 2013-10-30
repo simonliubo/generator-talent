@@ -8,68 +8,29 @@ module.exports = function( grunt ) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json')
 		,banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd H:MM") %> */'
-		// default watch configuration
 		,watch: {
 			options: {
 				livereload: false
-			},
-			jst: {
+			}
+			,jst: {
 				files: [
 					'app/templates/**/*.html'
-				],
-				tasks: 'jst'
-			},
-			sass: {
-				files: [
-					'app/styles/sass/**/*.scss'
-				],
-				tasks: 'sass:dist'
+				]
+				,tasks: 'jst'
 			}
-		}
-		// default lint configuration, change this to match your setup:
-		// https://github.com/cowboy/grunt/blob/master/docs/task_lint.md#lint-built-in-task
-		,lint: {
-			files: [
-				'Gruntfile.js',
-				'app/scripts/**/*.js',
-				'test/**/*.js'
-			]
-		}
-		// specifying JSHint options and globals
-		// https://github.com/cowboy/grunt/blob/master/docs/task_lint.md#specifying-jshint-options-and-globals
-		,jshint: {
-			options: {
-				curly: true,
-				eqeqeq: true,
-				immed: true,
-				latedef: true,
-				newcap: true,
-				noarg: true,
-				sub: true,
-				undef: true,
-				// unused: true,
-				boss: true,
-				eqnull: true,
-				browser: true
-			},
-			globals: {
-				"jQuery": true,
-				"define": false
-			},
-			all: []
 		}
 		,requirejs: {
 			options: {
-				appDir: "app",
-				baseUrl: "./scripts",
-				mainConfigFile: "app/scripts/config.js",
-				dir: "release/app",
-				optimizeCss: "none",
-				skipDirOptimize: true,
-				optimize: "none",
-				preserveLicenseComments: false,
-				keepBuildDir: true,
-				removeCombined: false
+				appDir: "app"
+				,baseUrl: "./scripts"
+				,mainConfigFile: "app/scripts/config.js"
+				,dir: "release/app"
+				,optimizeCss: "none"
+				,skipDirOptimize: true
+				,optimize: "none"
+				,preserveLicenseComments: false
+				,keepBuildDir: true
+				,removeCombined: false
 			}
 			,mainIncludeFiles:[
 				'main'
@@ -102,9 +63,9 @@ module.exports = function( grunt ) {
 		}
 		,uglify: {
 			options : {
-				banner: '<%= banner %>',
-        		// report: 'gzip',
-				preserveComments: false
+				banner: '<%= banner %>'
+        		// ,report: 'gzip'
+				,preserveComments: false
 			}
 			,main: {
 				files: {
@@ -131,6 +92,7 @@ module.exports = function( grunt ) {
 				files: {
 					"app/scripts/templates/common.js": ["app/templates/common/**/*.html"]
 					,"app/scripts/templates/home.js": ["app/templates/home/**/*.html"]
+					,"app/scripts/templates/about.js": ["app/templates/about/**/*.html"]
 				}
 			}
 		}
@@ -152,88 +114,25 @@ module.exports = function( grunt ) {
 				}
 			}
 		}
-		,sass: {
-			options:{
-				trace:true
-				,loadPath: [
-					'app/styles/sass/'
-				]
-			},
-			dist: {
-				files: {
-					'app/styles/css/all.css': 'app/styles/sass/all.scss'
-				}
-			}
-		}
-		,jsdoc : {
-			dist : {
-				src: [
-					'app/scripts/main.js',
-					'app/scripts/helpers/**/*.js',
-					'app/scripts/network/**/*.js',
-					'app/scripts/views/**/*.js',
-					'app/scripts/collections/**/*.js',
-					'app/scripts/models/**/*.js',
-					'README.md'
-				],
-				options: {
-					destination: 'doc'
-				}
-			}
-		}
 		,connect: {
 			server: {
 				options: {
-					hostname: 'localhost',
-					// port: 80,
+					hostname: 'localhost'
+					// ,port: 8000
 					,base: 'app'
 					,open: 'http://localhost:8000'
 				}
 			}
 		}
-		,bower: {
-			target: {
-				rjsConfig: 'app/scripts/config.js'
-				,exclude: []
-			}
-		}
-		,concurrent: {
-			compilejs: {
-				tasks: [
-				//top channels start
-					'requirejs:main'
-					,'requirejs:home'
-				//top channels end
-				]
-			}
-			,minjs: {
-				tasks: [
-					'uglify:main'
-					,'uglify:home'
-				]
-			}
-		}
-		,sloc: {
-			'app/scripts': ['**.js']
-		}
 	});
-	grunt.registerTask('build', ['jst','concurrent:compilejs','concurrent:minjs']);
-	grunt.registerTask('win', ['jst','sass','watch']);
+	grunt.registerTask('js', ['jst']);
+	grunt.registerTask('css', ['cssjoin','cssmin']);
+	grunt.registerTask('local', ['jst','watch']);
 	grunt.registerTask('server', ['jst','connect','watch']);
 
 	// customized tasks by the project
 	grunt.loadNpmTasks('grunt-contrib-jst');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-requirejs');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-cssjoin');
-	grunt.loadNpmTasks('grunt-jsdoc');
 	grunt.loadNpmTasks('grunt-contrib-connect');
-	grunt.loadNpmTasks('grunt-bower-requirejs');
-	grunt.loadNpmTasks('grunt-concurrent');
-	grunt.loadNpmTasks('grunt-sloc');
 
 };

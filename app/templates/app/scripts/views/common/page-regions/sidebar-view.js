@@ -11,7 +11,7 @@ define(['talent', 'templates/common'],
 	{
 		template: jst['common/page-regions/sidebar']
 		,tagName : 'ul'
-		,className : 'nav nav-list span3'
+		,className : 'nav nav-list'
 	});
 
 });

@@ -2,6 +2,7 @@
 var util = require('util');
 var yeoman = require('yeoman-generator');
 var path = require('path');
+var chalk = require('chalk');
 var fs = require('fs');
 
 var PageGenerator = module.exports = function PageGenerator(args, options, config) {
@@ -17,8 +18,10 @@ var PageGenerator = module.exports = function PageGenerator(args, options, confi
 	
 	if(this.options.res){
 		var resPages = [];
+		this.indexPages = [];
 		for (var i = 0; i < this.pages.length; i++) {
 			var page = this.pages[i];
+			this.indexPages.push(page);
 			resPages.push(page);
 			resPages.push(path.join(page, 'show'));
 			resPages.push(path.join(page, 'edit'));
@@ -53,11 +56,16 @@ PageGenerator.prototype.files = function files() {
 		var viewPath = path.join('app','scripts','views', page, 'index-page-view.js');
 		var tmplPath = path.join('app', 'templates', page, 'index-page.html');
 
+		var isRes = false;
+		if(this.options.res&&(this.indexPages.indexOf(page) > -1)){
+			isRes = true;
+		}
 		var data = {
 			topChannel: topChannel
 			,name: page
 			,viewPath: viewPath
 			,tmplPath: tmplPath
+			,isRes: isRes
 		};
 		if(this.options.del){
 			var viewDir = path.dirname(viewPath);
@@ -69,8 +77,8 @@ PageGenerator.prototype.files = function files() {
 			fs.rmdir(viewDir);
 			fs.rmdir(tmplDir);
 			
-			console.log('   delete '+viewPath);
-			console.log('   delete '+tmplPath);
+			this.log(chalk.green('   delete ')+viewPath);
+			this.log(chalk.green('   delete ')+tmplPath);
 		}else{
 			this.template('index-page-view.js'
 				,viewPath

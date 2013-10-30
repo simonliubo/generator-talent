@@ -15,5 +15,11 @@ define(['talent'
 			// events['click ' + this.ui.item] = 'eventHandler';
 			return events;
 		}
+		,onRender: function() {
+		}
+		,onShow: function() {
+		}
+		,onClose:function(){
+		}
 	});
 });

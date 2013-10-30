@@ -1,22 +1,22 @@
 'use strict';
 var util = require('util');
 var path = require('path');
+var chalk = require('chalk');
 var yeoman = require('yeoman-generator');
 
 
 var TalentGenerator = module.exports = function TalentGenerator(args, options, config) {
 	yeoman.generators.Base.apply(this, arguments);
 
-	this.name = "talent-demo";
-	if(args.length > 0){
-		this.name = args[0];
-	}
+	this.argument('name', { type: String, required: false });
+	this.name = this.name || path.basename(process.cwd());
 
 	this.on('end', function () {
 		this.installDependencies({ skipInstall: options['skip-install'] });
+		// this.log.write().write();
+		// this.log.ok('type "'+chalk.red("grunt server")+'" to start your project!');
 	});
 
-	this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
 util.inherits(TalentGenerator, yeoman.generators.NamedBase);
@@ -24,26 +24,14 @@ util.inherits(TalentGenerator, yeoman.generators.NamedBase);
 TalentGenerator.prototype.askFor = function askFor() {
 
 	// welcome message
-	var welcome =
-	'\n     _-----_' +
-	'\n    |       |' +
-	'\n    |' + '--(o)--'.red + '|   .--------------------------.' +
-	'\n   `---------麓  |    ' + 'Welcome to Talent,'.yellow + '    |' +
-	'\n    ' + '( '.yellow + '_' + '麓U`'.yellow + '_' + ' )'.yellow + '   |   ' + 'ladies and gentlemen!'.yellow + '  |' +
-	'\n    /___A___\\   \'__________________________\'' +
-	'\n     |  ~  |'.yellow +
-	'\n   __' + '\'.___.\''.yellow + '__' +
-	'\n 麓   ' + '`  |'.red + '掳 ' + '麓 Y'.red + ' `\n';
+	var welcome = 'Welcome to '+chalk.red('TalentJS')+'!';
 
-	console.log(welcome);
+	this.log(welcome);
   
 };
 
-TalentGenerator.prototype.app = function app() {
-};
-
 TalentGenerator.prototype.projectfiles = function projectfiles() {
-	this.directory('.','.');
+	this.directory('.', '.');
 	// this.mkdir(path.join('app', 'images'));
 	// this.mkdir(path.join('app', 'scripts'));
 	// this.mkdir(path.join('app', 'scripts', 'vendor'));

@@ -6,7 +6,7 @@ require.config({
 		,"marionette": "vendor/components/marionette/index"
 		,"underscore": "vendor/components/underscore/index"
 		,"requirejs": "vendor/components/requirejs/index"
-		,"talent" : 'vendor/components/talent/index'
+		,"talent" : 'vendor/components/talentjs/index'
 	},
 	shim: {
 		'jquery': {
