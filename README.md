@@ -18,3 +18,11 @@ A generator for TalentJS Framework
 	`yo talent`
 - start project
 	`grunt server`
+- create project page view
+	`yo talent:page about/users`
+- create project resource page view
+	`yo talent:page about/users -res`
+- delete project page view
+	`yo talent:page about/users -del`
+- use expand pattern
+	`yo talent:page 'about/{users,pages}/{show,edit}'`

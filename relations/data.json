@@ -6,6 +6,10 @@
 		},
 		"bottom": {
 			"name": "MaterialPreviewCompositeView"
+			,"method": [
+				"render"
+				,"updatePreviewList"
+			]
 		},
 		"pop": {
 			"name": "AllMaterialCompositeView"
@@ -14,7 +18,7 @@
 			]
 		}
 	},
-	"relations:" {
+	"relations": {
 		"pop:submit": "top:render bottom:render"
 	}
 }
