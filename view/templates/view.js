@@ -1,9 +1,9 @@
 define(['talent'
 	,'templates/<%=topChannel%>'
-],function(talent
+],function(Talent
 	,jst
 ) {
-	return talent.<%=viewType%>.extend({
+	return Talent.<%=viewType%>.extend({
 		template: jst['<%=tmplRef%>']
 		,initialize: function() {
 		}

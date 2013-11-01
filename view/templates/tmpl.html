@@ -1,9 +1,19 @@
-<h3>Edit your view and template files.</h3>
+<h3><%=name%></h3>
 <p class="lead">
 	<strong>View: </strong>
-	<small><%=viewPath%></small>
+	<small>
+		<input style="border:none;width:80%;" 
+			onmouseover="this.select()"
+			onmouseout="this.blur()"
+		 value="<%=viewPath%>" />
+	</small>
 </p>
 <p class="lead">
 	<strong>Template: </strong>
-	<small><%=tmplPath%></small>
+	<small>
+		<input style="border:none;width:80%;" 
+			onmouseover="this.select()"
+			onmouseout="this.blur()"
+		 value="<%=tmplPath%>" />
+	</small>
 </p>

@@ -8,7 +8,7 @@ define(['talent'
 		,initialize: function() {
 		}
 		,regions: {
-			// main: '.page-main-region'
+			// main: '.main-region'
 		}
 		,ui:{
 			// item: '.ui-item'

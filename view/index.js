@@ -58,7 +58,7 @@ ViewGenerator.prototype.files = function files() {
 		var data = {
 			topChannel: topChannel
 			,name: page
-			,tmplRef: path.join('templates', tmplName)
+			,tmplRef: tmplName
 			,viewType: typeMapping[type].type
 			,viewPath: viewPath
 			,tmplPath: tmplPath

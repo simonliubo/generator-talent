@@ -5,11 +5,21 @@
 	<div class="panel-body">
 		<p class="lead">
 			<strong>View: </strong>
-			<small><%=viewPath%></small>
+			<small>
+				<input style="border:none;width:80%;" 
+					onmouseover="this.select()"
+					onmouseout="this.blur()"
+				 value="<%=viewPath%>" />
+			</small>
 		</p>
 		<p class="lead">
 			<strong>Template: </strong>
-			<small><%=tmplPath%></small>
+			<small>
+				<input style="border:none;width:80%;" 
+					onmouseover="this.select()"
+					onmouseout="this.blur()"
+				 value="<%=tmplPath%>" />
+			</small>
 		</p>
 		<%if(isRes){%>
 		<p class="lead">

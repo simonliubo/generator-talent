@@ -29,6 +29,11 @@ var PageGenerator = module.exports = function PageGenerator(args, options, confi
 		};
 		this.pages = resPages;
 	}
+
+	this.on('end', function () {
+		var spawn = require('child_process').spawn;
+		spawn('grunt', ['jst']);
+	});
 };
 
 util.inherits(PageGenerator, yeoman.generators.NamedBase);
