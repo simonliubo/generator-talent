@@ -99,7 +99,7 @@ module.exports = function( grunt ) {
 		,cssjoin: {
 			join :{
 				files: {
-					'release/app/styles/all.css': ['app/styles/all.css'],
+					'release/app/styles/css/all.css': ['app/styles/css/all.css']
 				}
 			}
 		}
@@ -110,7 +110,7 @@ module.exports = function( grunt ) {
 			},
 			compress: {
 				files: {
-				  'app/styles/css/all.min.css': ['app/styles/css/all.css']
+				  'release/app/styles/css/all.min.css': ['release/app/styles/css/all.css']
 				}
 			}
 		}
@@ -125,7 +125,7 @@ module.exports = function( grunt ) {
 			}
 		}
 	});
-	grunt.registerTask('js', ['jst']);
+	grunt.registerTask('js', ['jst','requirejs','uglify']);
 	grunt.registerTask('css', ['cssjoin','cssmin']);
 	grunt.registerTask('local', ['jst','watch']);
 	grunt.registerTask('server', ['jst','connect','watch']);
@@ -134,5 +134,11 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks('grunt-contrib-jst');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-connect');
+
+	grunt.loadNpmTasks('grunt-contrib-requirejs');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+
+	grunt.loadNpmTasks('grunt-cssjoin');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 
 };
