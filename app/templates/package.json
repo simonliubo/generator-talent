@@ -2,6 +2,9 @@
 	"author": "Beisen UX Team",
 	"description": "Beisen TalentJS Framework Generator",
 	"name": "<%=name%>",
+	"configFile": "<%=name%>-static-files",
+	"configUser": "<%=name%>",
+	"configApp": "",
 	"version": "0.0.1",
 	"dependencies": {
 		"grunt" : "~0.4.1"

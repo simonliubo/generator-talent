@@ -1,22 +1,22 @@
 require.config({
 	paths: {
 		"backbone": "vendor/components/backbone/index"
-		,"jquery": "vendor/components/jquery/index"
-		,"json2": "vendor/components/json2/index"
+		,"$": "vendor/components/jquery/index"
+		,"json": "vendor/components/json/index"
 		,"marionette": "vendor/components/marionette/index"
-		,"underscore": "vendor/components/underscore/index"
+		,"_": "vendor/components/lodash/index"
 		,"requirejs": "vendor/components/requirejs/index"
-		,"talent" : 'vendor/components/talentjs/index'
+		,"talent" : 'vendor/components/talent/index'
 	},
 	shim: {
-		'jquery': {
+		'$': {
 			exports: '$'
 		}
-		,'underscore': {
+		,'_': {
 			exports: '_'
 		}
 		,'backbone': {
-			deps: ['json2', 'underscore', 'jquery'],
+			deps: ['json', '_', '$'],
 			exports: 'Backbone'
 		}
 		,'marionette': {
@@ -28,4 +28,4 @@ require.config({
 			exports: 'Talent'
 		}
 	}
-}); 
+});

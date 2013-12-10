@@ -1,13 +1,7 @@
 {
-	"name": "talentjs"
-	,"version": "0.3.1"
+	"name": "<%=name%>"
+	,"version": "0.0.1"
 	,"dependencies": {
-		"jquery": "http://bower.beisen.co/repo/jquery/1.10.1.js"
-		,"underscore": "http://bower.beisen.co/repo/lodash/1.3.1.js"
-		,"json2": "http://bower.beisen.co/repo/json2/index.js"
-		,"backbone": "http://bower.beisen.co/repo/backbone/1.0.0.js"
-		,"marionette": "http://bower.beisen.co/repo/marionette/1.0.3.js"
-		,"requirejs": "http://bower.beisen.co/repo/requirejs/2.1.2.js"
-		,"talentjs": "http://bower.beisen.co/repo/talentjs/0.3.1-3.js"
+		"talent": "~0.3"
 	}
 }
