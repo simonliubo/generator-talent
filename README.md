@@ -18,6 +18,8 @@ A generator for TalentJS Framework
 	`yo talent`
 - start project
 	`grunt server`
+
+## Creating Page View
 - create project page view
 	`yo talent:page about/users`
 - create project resource page view
@@ -26,3 +28,11 @@ A generator for TalentJS Framework
 	`yo talent:page about/users -del`
 - use expand pattern
 	`yo talent:page 'about/{users,pages}/{show,edit}'`
+
+## Creating View (ItemView, CompositeView, Layout)
+- create item view (path:item)
+	`yo talent:view about/user:item`
+- create composite view (path:composite)
+	`yo talent:view about/user:composite`
+- create layout view (path:layout)
+	`yo talent:view about/user:layout`

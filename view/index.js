@@ -70,8 +70,8 @@ ViewGenerator.prototype.files = function files() {
 			fs.unlink(viewPath);
 			fs.unlink(tmplPath);
 
-			fs.rmdir(viewDir);
-			fs.rmdir(tmplDir);
+			// fs.rmdir(viewDir);
+			// fs.rmdir(tmplDir);
 			
 			console.log('   delete '+viewPath);
 			console.log('   delete '+tmplPath);
