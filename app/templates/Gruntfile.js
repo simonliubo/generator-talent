@@ -1,11 +1,7 @@
 module.exports = function( grunt ) {
 	'use strict';
-	//
-	// Grunt configuration:
-	//
-	// https://github.com/cowboy/grunt/blob/master/docs/getting_started.md
-	//
-	grunt.initConfig({
+
+	var config = {
 		pkg: grunt.file.readJSON('package.json')
 		,banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd H:MM") %> */'
 		,watch: {
@@ -33,7 +29,8 @@ module.exports = function( grunt ) {
 				,removeCombined: false
 			}
 			,mainIncludeFiles:[
-				'main'
+				'requirejs'
+				,'main'
 				,'talent'
 				,'collections/index', 'routers/index'
 				,'helpers/index', 'network/index'
@@ -50,16 +47,6 @@ module.exports = function( grunt ) {
 					]
 				}
 			}
-			,home: {
-				options: {
-					modules: [
-						{
-							name: "views/home/index-page-view"
-							,exclude: '<%= requirejs.mainIncludeFiles %>'
-						}
-					]
-				}
-			}
 		}
 		,uglify: {
 			options : {
@@ -72,34 +59,26 @@ module.exports = function( grunt ) {
 					'release/app/scripts/main.min.js': ['release/app/scripts/main.js']
 				}
 			}
-			,home: {
-				files: {
-					'release/app/scripts/views/home/index-page-view.min.js': ['release/app/scripts/views/home/index-page-view.js']
-				}
-			}
 		}
 		,jst: {
-			compile: {
-				options: {
-					prettify: true,
-					// namespace: 'jst',
-					processName: function(filename) {
-						var index = filename.lastIndexOf('/');
-						return filename.replace("app/templates/","").split(".")[0];
-					},
-					amd: true
+			options: {
+				prettify: true,
+				// namespace: 'jst',
+				processName: function(filename) {
+					var index = filename.lastIndexOf('/');
+					return filename.replace("app/templates/","").split(".")[0];
 				},
-				files: {
-					"app/scripts/templates/common.js": ["app/templates/common/**/*.html"]
-					,"app/scripts/templates/home.js": ["app/templates/home/**/*.html"]
-					,"app/scripts/templates/about.js": ["app/templates/about/**/*.html"]
-				}
+				amd: true
+			}
+			,common: {
+				src: ["app/templates/common/**/*.html"],
+				dest: "app/scripts/templates/common.js"
 			}
 		}
 		,cssjoin: {
 			join :{
 				files: {
-					'release/app/styles/css/all.css': ['app/styles/css/all.css']
+					'release/app/styles/css/all.css': ['app/styles/css/all.css'],
 				}
 			}
 		}
@@ -124,21 +103,50 @@ module.exports = function( grunt ) {
 				}
 			}
 		}
-	});
-	grunt.registerTask('js', ['jst','requirejs','uglify']);
+	};
+
+
+	var channels = grunt.file.expand('app/scripts/views/*');
+	var blackList = ['common'];
+
+	for(var i=0; i<channels.length; i++){
+		var channel = channels[i];
+		var channelName = channel.slice(channel.lastIndexOf('/')+1);
+		if(!grunt.file.isDir(channel) 
+			|| (blackList.indexOf(channelName) > -1)
+			|| !grunt.file.isFile(channel, 'index-page-view.js')
+		){
+			continue;
+		}
+		config.jst[channelName] = {
+			src: ["app/templates/"+channelName+"/**/*.html"],
+			dest: "app/scripts/templates/"+channelName+".js"
+		};
+		config.requirejs[channelName] = {
+			options: {
+				modules: [
+					{
+						name: "views/"+channelName+"/index-page-view"
+						,exclude: '<%= requirejs.mainIncludeFiles %>'
+					}
+				]
+			}
+		};
+		config.uglify[channelName] = {
+			src: ["release/app/scripts/views/"+channelName+"/index-page-view.js"],
+			dest: "release/app/scripts/views/"+channelName+"/index-page-view.min.js"
+		};
+	}
+
+	grunt.initConfig(config);
+
+
+	// 通过grunt.registerTask()来注册任务
+	grunt.registerTask('js', ['jst','requirejs','uglify']); // 执行js下的jst子任务
 	grunt.registerTask('css', ['cssjoin','cssmin']);
 	grunt.registerTask('local', ['jst','watch']);
 	grunt.registerTask('server', ['jst','connect','watch']);
 
-	// customized tasks by the project
-	grunt.loadNpmTasks('grunt-contrib-jst');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-connect');
-
-	grunt.loadNpmTasks('grunt-contrib-requirejs');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-
-	grunt.loadNpmTasks('grunt-cssjoin');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	require('load-grunt-tasks')(grunt);
 
 };
