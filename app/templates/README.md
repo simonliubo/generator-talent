@@ -1,4 +1,4 @@
-# <%=name%>
+# Project title
 
 ## 本地运行
 * 安装[nodejs](http://ux.beisen.co/redmine/attachments/download/2/node-v0.8.18-x64.msi)；

@@ -1,9 +1,9 @@
 {
 	"author": "Beisen TMS Team",
 	"description": "Beisen TMS College Career",
-	"name": "tms-cc",
-	"configFile": "GongzuohuiStaticFiles",
-	"configUser": "tms-cc",
+	"name": "project name",
+	"configFile": "StaticUI",
+	"configUser": "ui",
 	"configApp": "",
 	"version": "0.0.1",
 	"dependencies": {
