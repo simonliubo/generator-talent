@@ -103,6 +103,12 @@ module.exports = function( grunt ) {
 				}
 			}
 		}
+		,concurrent: {
+			jst: ['jst:common']
+			,rjs: ['requirejs:mainIncludeFiles']	// fix: rjs copy conflict
+			,requirejs: ['requirejs:main']
+			,uglify: ['uglify:main']
+		}
 	};
 
 
@@ -136,13 +142,15 @@ module.exports = function( grunt ) {
 			src: ["release/app/scripts/views/"+channelName+"/index-page-view.js"],
 			dest: "release/app/scripts/views/"+channelName+"/index-page-view.min.js"
 		};
+
+		config.concurrent.requirejs.push('requirejs:'+channelName);
+		config.concurrent.uglify.push('uglify:'+channelName);
 	}
 
 	grunt.initConfig(config);
 
 
-	// 通过grunt.registerTask()来注册任务
-	grunt.registerTask('js', ['jst','requirejs','uglify']); // 执行js下的jst子任务
+	grunt.registerTask('js', ['concurrent']);
 	grunt.registerTask('css', ['cssjoin','cssmin']);
 	grunt.registerTask('local', ['jst','watch']);
 	grunt.registerTask('server', ['jst','connect','watch']);
