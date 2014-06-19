@@ -143,6 +143,7 @@ module.exports = function( grunt ) {
 			dest: "release/app/scripts/views/"+channelName+"/index-page-view.min.js"
 		};
 
+		config.concurrent.jst.push('jst:'+channelName);
 		config.concurrent.requirejs.push('requirejs:'+channelName);
 		config.concurrent.uglify.push('uglify:'+channelName);
 	}
