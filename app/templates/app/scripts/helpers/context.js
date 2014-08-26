@@ -29,7 +29,7 @@ define(['talent'], function(Talent) {
 			var staticServer = BSGlobal.staticPath;
 			return staticServer + "/" + url;
 		},
-		,getLoading: function(){
+		getLoading: function(){
 			var url = this.getStaticUrl('images/load_m.gif');
 			var html = [
 			'<div class="_tt_loading_m">',
