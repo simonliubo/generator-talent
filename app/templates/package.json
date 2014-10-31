@@ -2,9 +2,9 @@
 	"author": "Beisen TMS Team",
 	"description": "Beisen TMS College Career",
 	"name": "xdemo",
-	"configFile": "TMSRecruitStaticConfig",
-	"configUser": "tms-recruit",
-	"configApp": "",
+	"configFile": "TitaTempStaticFileConfig",
+	"configUser": "tita",
+	"configApp": "xdemo.tita.com",
 	"version": "0.0.1",
 	"dependencies": {
 		"grunt": "0.4.5",
